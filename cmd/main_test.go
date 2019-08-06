@@ -36,3 +36,11 @@ func TestSumWithCmp(t *testing.T) {
 		t.Errorf("Sum() mismatch (-want +got):\n%s", diff)
 	}
 }
+
+func TestObjectWithCmp(t *testing.T) {
+	want := Object{"a", 1, true}
+	got := genObject("a", 1, true)
+	if !cmp.Equal(want, got) {
+		t.Error("genObject() doesn't equal")
+	}
+}
