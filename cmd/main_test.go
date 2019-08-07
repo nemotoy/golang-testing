@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
+	"github.com/matryer/is"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -35,6 +36,15 @@ func TestSumWithCmp(t *testing.T) {
 	if diff := cmp.Diff(want, got); diff != "" {
 		t.Errorf("Sum() mismatch (-want +got):\n%s", diff)
 	}
+}
+
+func TestSumWithIs(t *testing.T) {
+	is := is.New(t)
+	i := 1
+	i2 := 2
+	want := 3
+	got := Sum(i, i2)
+	is.Equal(want, got)
 }
 
 func TestObjectWithCmp(t *testing.T) {
