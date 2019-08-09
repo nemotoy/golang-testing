@@ -1,4 +1,4 @@
-package main
+package main_test
 
 import (
 	"reflect"
@@ -8,6 +8,10 @@ import (
 	"github.com/matryer/is"
 	"github.com/stretchr/testify/assert"
 )
+
+func Sum(i, i2 int) int {
+	return i + i2
+}
 
 func BenchmarkSumWithReflect(b *testing.B) {
 	for i := 0; i < b.N; i++ {
