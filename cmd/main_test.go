@@ -14,10 +14,11 @@ func Sum(i, i2 int) int {
 }
 
 func BenchmarkSumWithReflect(b *testing.B) {
+	i, i2 := 1, 2
+	want := i + i2
+	got := Sum(i, i2)
+	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		i, i2 := i, i+1
-		want := i + i2
-		got := Sum(i, i2)
 		if !reflect.DeepEqual(got, want) {
 			b.Fatal()
 		}
@@ -25,20 +26,22 @@ func BenchmarkSumWithReflect(b *testing.B) {
 }
 
 func BenchmarkSumWithTestify(b *testing.B) {
+	i, i2 := 1, 2
+	want := i + i2
+	got := Sum(i, i2)
+	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		a := assert.New(b)
-		i, i2 := i, i+1
-		want := i + i2
-		got := Sum(i, i2)
 		a.EqualValues(want, got)
 	}
 }
 
 func BenchmarkSumWithCmp(b *testing.B) {
+	i, i2 := 1, 2
+	want := i + i2
+	got := Sum(i, i2)
+	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		i, i2 := i, i+1
-		want := i + i2
-		got := Sum(i, i2)
 		if diff := cmp.Diff(want, got); diff != "" {
 			b.Errorf("Sum() mismatch (-want +got):\n%s", diff)
 		}
@@ -46,11 +49,12 @@ func BenchmarkSumWithCmp(b *testing.B) {
 }
 
 func BenchmarkSumWithIs(b *testing.B) {
+	i, i2 := 1, 2
+	want := i + i2
+	got := Sum(i, i2)
+	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		is := is.New(b)
-		i, i2 := i, i+1
-		want := i + i2
-		got := Sum(i, i2)
 		is.Equal(want, got)
 	}
 }
