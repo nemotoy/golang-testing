@@ -42,8 +42,8 @@ func BenchmarkSumWithCmp(b *testing.B) {
 	got := Sum(i, i2)
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		if diff := cmp.Diff(want, got); diff != "" {
-			b.Errorf("Sum() mismatch (-want +got):\n%s", diff)
+		if !cmp.Equal(want, got) {
+			b.Fatal()
 		}
 	}
 }
