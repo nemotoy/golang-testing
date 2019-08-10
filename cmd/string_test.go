@@ -13,7 +13,7 @@ func Sum(i, i2 int) int {
 	return i + i2
 }
 
-func BenchmarkSumWithReflect(b *testing.B) {
+func BenchmarkStringWithReflect(b *testing.B) {
 	i, i2 := 1, 2
 	want := i + i2
 	got := Sum(i, i2)
@@ -25,7 +25,7 @@ func BenchmarkSumWithReflect(b *testing.B) {
 	}
 }
 
-func BenchmarkSumWithTestify(b *testing.B) {
+func BenchmarkStringWithTestify(b *testing.B) {
 	i, i2 := 1, 2
 	want := i + i2
 	got := Sum(i, i2)
@@ -36,7 +36,7 @@ func BenchmarkSumWithTestify(b *testing.B) {
 	}
 }
 
-func BenchmarkSumWithCmp(b *testing.B) {
+func BenchmarkStringWithCmp(b *testing.B) {
 	i, i2 := 1, 2
 	want := i + i2
 	got := Sum(i, i2)
@@ -48,7 +48,7 @@ func BenchmarkSumWithCmp(b *testing.B) {
 	}
 }
 
-func BenchmarkSumWithIs(b *testing.B) {
+func BenchmarkStringWithIs(b *testing.B) {
 	i, i2 := 1, 2
 	want := i + i2
 	got := Sum(i, i2)
