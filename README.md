@@ -6,7 +6,7 @@
 $ go test -v ./... -bench .
 ```
 
-### string
+### int
 
 |method  |  |  |
 |---|---|---|
