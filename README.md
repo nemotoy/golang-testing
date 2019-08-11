@@ -49,3 +49,4 @@ $ go test -v ./cmd/interface_struct_test.go -bench .
 
 * [pkg/testing](https://golang.org/pkg/testing)
 * [Testing_flags](https://golang.org/cmd/go/#hdr-Testing_flags)
+* [cover](https://blog.golang.org/cover)
