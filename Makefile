@@ -6,3 +6,6 @@ test:
 
 bench:
 	$(GOTEST) -v ./... -bench .
+
+cover:
+	$(GOTEST) ./... -cover
