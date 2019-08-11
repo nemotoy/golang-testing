@@ -8,4 +8,4 @@ bench:
 	$(GOTEST) -v ./... -bench .
 
 cover:
-	$(GOTEST) ./... -cover
+	$(GOTEST) -v ./... -cover
